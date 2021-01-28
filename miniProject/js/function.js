@@ -15,7 +15,7 @@ var geocoder = new kakao.maps.services.Geocoder();
 let address = '서울시 금천구 가산디지털2로 115';
 
 function formSearch(){
-    address = document.querySelector('input-address').value;
+    address = document.querySelector('.input-address').value;
 
     // 주소-좌표 변환 객체를 생성합니다
     geocoder.addressSearch(address, function(result, status){
@@ -33,11 +33,11 @@ function formSearch(){
     });
 }
 
-document.querySelector('button-search').addEventListener('click', function(){
+document.querySelector('.button-search').addEventListener('click', function(){
     formSearch();
 });
 
-document.querySelector('input-address').addEventListener('keypress',function(event){
+document.querySelector('.input-address').addEventListener('keypress',function(event){
     if(event.key == 'Enter')
     {
         formSearch();
