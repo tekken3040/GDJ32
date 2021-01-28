@@ -14,6 +14,17 @@ var geocoder = new kakao.maps.services.Geocoder();
 
 let address = '서울시 금천구 가산디지털2로 115';
 
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(function(position){
+          console.log(position.coords);
+      });
+    } 
+    else { 
+      alert('Not Support!');
+    }
+  }
+
 function formSearch(){
     address = document.querySelector('.input-address').value;
 
@@ -42,4 +53,9 @@ document.querySelector('.input-address').addEventListener('keypress',function(ev
     {
         formSearch();
     }
+});
+
+document.querySelector('.button-position').addEventListener('click', function(){
+    this.setAttribute('class', 'button-position active');
+    getLocation();
 });

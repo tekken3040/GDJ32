@@ -199,6 +199,9 @@ body {
   background-size: 28px 28px;
   background-repeat: no-repeat;
 }
+.button-position.active {
+  background-image: url(../images/current_position_active.png);
+}
 @media screen and (max-width: 460px) {
   .form-section {
     width: calc(100% - 30px);
