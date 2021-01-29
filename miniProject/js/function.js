@@ -27,6 +27,8 @@ function updateCenterCoordinate(){
                 document.querySelector('.popup-address-2depth').innerHTML = result[0].address.region_2depth_name;
                 console.log(result[0].address.region_3depth_name);
                 document.querySelector('.popup-address-3depth').innerHTML = result[0].address.region_3depth_name;
+
+                document.querySelector('.popup-address-3depth-h').innerHTML = '';
             });
 
             getWeatherData(position.coords.latitude, position.coords.longitude);
@@ -65,6 +67,8 @@ function watchLocation() {
                 document.querySelector('.popup-address-2depth').innerHTML = result[0].address.region_2depth_name;
                 console.log(result[0].address.region_3depth_name);
                 document.querySelector('.popup-address-3depth').innerHTML = result[0].address.region_3depth_name;
+
+                document.querySelector('.popup-address-3depth-h').innerHTML = '';
             });
             getWeatherData(position.coords.latitude, position.coords.longitude);
         });
@@ -146,7 +150,7 @@ document.querySelector('.button-position').addEventListener('click', function(){
 // 날씨
 function getWeatherData(weatherLatiude, weatherLongitude){
 
-    fetch('http://api.openweathermap.org/data/2.5/weather?lat=' + weatherLatiude + '&lon=' + weatherLongitude + '&appid=38839cb93ff3097889b4eba2996ff3d5')
+    fetch('http://api.openweathermap.org/data/2.5/weather?lat=' + weatherLatiude + '&lon=' + weatherLongitude + '&appid=2413711f81d8cfa2c12ca28c5fd7e73e')
     .then(function(response){
         return response.json();
     })
@@ -214,3 +218,13 @@ function extractWeatherData(weatherJson){
     document.querySelector('.popup-temp-number').innerHTML = temp;
 
 }
+
+document.querySelector('.button-weather').addEventListener('click', function(){
+    $('.popup').addClass('active');
+    $('.popup-contents').addClass('active');
+});
+
+document.querySelector('.popup').addEventListener('click', function(){
+    $('.popup').removeClass('active');
+    $('.popup-contents').removeClass('active');
+});
