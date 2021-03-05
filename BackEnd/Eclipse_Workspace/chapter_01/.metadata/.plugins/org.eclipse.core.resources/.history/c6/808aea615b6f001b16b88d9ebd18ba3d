@@ -1,0 +1,10 @@
+package jre_210215_01;
+
+public class CalcTest extends CalcClass{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

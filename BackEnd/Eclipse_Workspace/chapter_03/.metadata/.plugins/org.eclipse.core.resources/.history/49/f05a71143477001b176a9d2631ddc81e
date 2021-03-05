@@ -1,0 +1,15 @@
+package com.primrnumber.jse;
+
+public class CheckPrimeImpl implements CheckPrime{
+
+	public CheckPrimeImpl()
+	{
+		
+	}
+	@Override
+	public boolean isPrimeNum(int num) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

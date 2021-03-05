@@ -1,0 +1,5 @@
+package jre_210215_01;
+
+public interface CalcInterface {
+
+}

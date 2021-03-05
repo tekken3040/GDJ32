@@ -1,0 +1,6 @@
+package com.javaexam.gd;
+
+public class Demo 
+{
+	
+}

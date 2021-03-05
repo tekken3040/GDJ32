@@ -1,0 +1,22 @@
+package jre_210215_01;
+
+import java.util.Scanner;
+
+public class CalcTest extends CalcClass{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int inputNum1, inputNum2;
+		int CalcFunc = 0;
+		
+		System.out.println("계산할 연산을 선택 하세요 : 1[덧셈] 2[뺄셈] 3[곱셈] 4[나눗셈]");
+		try
+		{
+			CalcFunc = sc.nextInt();
+		}
+		catch (Exception e) {
+			System.out.println("정수만 입력하세요.");
+		}
+	}
+
+}

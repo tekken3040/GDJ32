@@ -1,0 +1,10 @@
+package com.javaexam.gd;
+
+public class SubDemo extends Demo
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String[] fruits = {"»ç°ú", "µþ±â", "¹è", "º¹¼þ¾Æ", "Æ÷µµ", "±Ö"};
+	}
+}

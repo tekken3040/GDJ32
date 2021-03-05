@@ -1,0 +1,42 @@
+package com.javaexam.gd;
+
+public class SubDemo extends Demo
+{
+	public static final String str = "java";
+	
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		char credit = 'F';
+		int score = 40;
+		 
+
+		// 바꿀 부분 시작
+
+		switch (score/10) {
+
+		default : credit = 'F'; break;
+
+		case 10:
+
+		case 9 : credit = 'A'; break;
+
+		case 8 : credit = 'B'; break;
+
+		case 7 : credit = 'C'; break;
+
+		case 6 : credit = 'D'; break;
+
+		}
+		int tempScore = score/10;
+		credit = (tempScore >= 9) ? 'A': (tempScore == 8) ? 'B' : (tempScore == 7) ? 'C' : (tempScore == 6) ? 'D' : 'F';
+
+		// 바꿀 부분 끝
+
+		 
+
+		System.out.println(score + "은(는) " + credit + "학점입니다.");
+
+		//sc.close();
+	}
+}

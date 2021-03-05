@@ -1,0 +1,20 @@
+package com.javaexam.gd;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Comparator;
+
+public class SubDemo extends Demo
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		String[] fruits = {"»ç°ú", "µþ±â", "¹è", "º¹¼þ¾Æ", "Æ÷µµ", "±Ö"};
+		List<String> list = new ArrayList();
+		
+		list.addAll(Arrays.asList(fruits));
+		list.sort(Comparator.naturalOrder());
+		list.forEach(x->System.out.print(list.indexOf(3) + " : " + x));
+	}
+}

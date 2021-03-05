@@ -1,0 +1,71 @@
+package jre_210215_01;
+
+import java.util.Scanner;
+
+public class CalcTest extends CalcClass{
+	static int inputNum1;
+
+	static int inputNum2;
+	
+	static int CalcFunc;
+	
+	static Scanner sc = new Scanner(System.in);
+	
+	public int getInputNum1() {
+		return inputNum1;
+	}
+
+	public static void setInputNum1(int inputNum1In) {
+		inputNum1 = inputNum1In;
+	}
+
+	public int getInputNum2() {
+		return inputNum2;
+	}
+
+	public static void setInputNum2(int inputNum2In) {
+		inputNum2 = inputNum2In;
+	}
+
+	public int getCalcFunc() {
+		return CalcFunc;
+	}
+
+	public static void setCalcFunc(int calcFunc) {
+		CalcFunc = calcFunc;
+	}
+
+	public static Scanner getSc() {
+		return sc;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("계산할 연산을 선택 하세요 : 1[덧셈] 2[뺄셈] 3[곱셈] 4[나눗셈]");
+		try
+		{
+			setCalcFunc(getSc().nextInt());
+			System.out.println("첫번째 정수를 입력하세요 :");
+			inPutNumber(0);
+			System.out.println("두번째 정수를 입력하세요 :");
+			inPutNumber(1);
+		}
+		catch (Exception e) {
+			System.out.println("정수만 입력하세요.");
+		}
+	}
+	
+	static void inPutNumber(int input)
+	{
+		try
+		{
+			if(input == 0)
+				setInputNum1(getSc().nextInt());
+			else
+				setInputNum2(getSc().nextInt());
+		}
+		catch (Exception e) 
+		{
+			System.out.println("정수만 입력하세요.");
+		}
+	}
+}

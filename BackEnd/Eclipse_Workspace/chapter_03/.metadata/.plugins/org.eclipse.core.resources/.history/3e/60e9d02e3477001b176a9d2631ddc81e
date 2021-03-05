@@ -1,0 +1,31 @@
+package com.primrnumber.jse;
+
+public class CheckPrimeImpl implements CheckPrime{
+
+	boolean flag = true;
+	
+	public CheckPrimeImpl()
+	{
+		
+	}
+	@Override
+	public boolean isPrimeNum(int num) {
+		// TODO Auto-generated method stub
+		int j=2;
+		flag = true;
+		while(flag)
+		{
+			if(j<=(int)Math.sqrt(num))
+			{
+				if(num % j == 0)
+					flag = false;
+				else
+					j++;
+			}
+			else
+				flag = false;
+		}
+		return flag;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.primrnumber.jse;
+
+public interface CheckPrime {
+
+}

@@ -1,0 +1,6 @@
+package com.javaexam.gd;
+
+public class Demo 
+{
+	public static final String str = "java";
+}

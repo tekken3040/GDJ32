@@ -1,0 +1,35 @@
+package jre_210215_01;
+
+public class CalcClass implements CalcInterface{
+
+	@Override
+	public void add(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void subtract(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void multiply(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void divide(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remainder(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

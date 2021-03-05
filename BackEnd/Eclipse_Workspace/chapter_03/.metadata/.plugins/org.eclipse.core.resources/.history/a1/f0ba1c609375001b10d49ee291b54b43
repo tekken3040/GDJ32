@@ -1,0 +1,12 @@
+package com.javaexam.gd;
+
+public class SubDemo extends Demo{
+
+	public static final String str = "java";
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
