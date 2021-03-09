@@ -1,0 +1,126 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch NetworkEx1",
+            "request": "launch",
+            "mainClass": "NetworkEx1",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch NetworkEx2",
+            "request": "launch",
+            "mainClass": "NetworkEx2",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch NetworkEx3",
+            "request": "launch",
+            "mainClass": "NetworkEx3",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch NetworkEx4",
+            "request": "launch",
+            "mainClass": "NetworkEx4",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch NetworkEx5",
+            "request": "launch",
+            "mainClass": "NetworkEx5",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpClient",
+            "request": "launch",
+            "mainClass": "TcpIpClient",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpClient5",
+            "request": "launch",
+            "mainClass": "TcpIpClient5",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpMultichatClient",
+            "request": "launch",
+            "mainClass": "TcpIpMultichatClient",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpMultichatServer",
+            "request": "launch",
+            "mainClass": "TcpIpMultichatServer",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpServer",
+            "request": "launch",
+            "mainClass": "TcpIpServer",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpServer2",
+            "request": "launch",
+            "mainClass": "TcpIpServer2",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpServer3",
+            "request": "launch",
+            "mainClass": "TcpIpServer3",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpServer4",
+            "request": "launch",
+            "mainClass": "TcpIpServer4",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch TcpIpServer5",
+            "request": "launch",
+            "mainClass": "TcpIpServer5",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch UdpClient",
+            "request": "launch",
+            "mainClass": "UdpClient",
+            "projectName": "network_ex"
+        },
+        {
+            "type": "java",
+            "name": "Launch UdpServer",
+            "request": "launch",
+            "mainClass": "UdpServer",
+            "projectName": "network_ex"
+        }
+    ]
+}

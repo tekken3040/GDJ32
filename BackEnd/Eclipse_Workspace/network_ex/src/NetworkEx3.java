@@ -4,7 +4,7 @@ import java.io.*;
 public class NetworkEx3 {
 	public static void  main(String args[]) {
 		URL url = null;
-		String address = "http://www.codechobo.com/sample/hello.html";
+		String address = "https://arca.live/b/tullius/22515914";
 		String line = "";
 
 		try {
