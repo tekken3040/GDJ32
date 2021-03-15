@@ -67,4 +67,29 @@ public interface MemberDao
      * @return 회원(존재) 여부
      */
     public boolean isMember(String memberId);
+
+    /**
+     * 회원 여부(인증) 점검<br><br>
+     *  : 회원 여부(인증) 점검 테스트<br><br>
+     * ex) 회원 로그인 (인증 : Authentication)<br><br>
+     * 
+     *  - 메세지 종류 : <br>
+     * 1) 회원 아이디가 존재하지 않을 경우 : 회원 정보가 존재하지 않습니다.<br><br>
+     * 2) 회원 아이디가 존재하지만 회원 패스워드가 맞지 않을 경우 : 회원 정보가 일치하지 않습니다.<br><br>
+     * 3) 회원 아이디 / 회원 패스워드가 다 일치할 경우 : 로그인 성공.<br><br>
+     * 
+     * @param memberId 회원 아이디
+     * @param memberPassword 회원 비밀번호
+     * @return 인증 메시지
+     */
+    public String isMember(String memberId, String memberPassword);
+
+    /**
+     * 페이징에 의한 회원정보 조회(검색)<br><br>
+     * 
+     * @param page 조회할 페이지 번호
+     * @param limit 페이지당 행 수
+     * @return 회원정보 리스트
+     */
+    public List<MemberVo> getMembersByPaging(int page, int limit);
 }
