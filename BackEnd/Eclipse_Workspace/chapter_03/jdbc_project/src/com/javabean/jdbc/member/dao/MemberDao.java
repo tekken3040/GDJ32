@@ -57,4 +57,14 @@ public interface MemberDao
      * @return 회원정보 삭제 성공 여부
      */
     public boolean deleteMember(String memberId);
+
+    /**
+     * 회원 여부 점검<br><br>
+     * 
+     * ex) 회원가입시 회원 여부 점검시 활용<br><br>
+     * 
+     * @param memberID 회원 아이디
+     * @return 회원(존재) 여부
+     */
+    public boolean isMember(String memberId);
 }

@@ -281,39 +281,84 @@ public class MemberDaoImpl implements MemberDao
     {
         boolean result = false;
 
-        Connection con = DbUtil.connect();                          // DB 연결
-        PreparedStatement stmt = null;                              // SQL 처리 객체
-        String sql = "DELETE FROM member " + 
-                "WHERE member_id=?";                                // SQL 구문
+        Connection con = DbUtil.connect(); // DB 연결
+        PreparedStatement stmt = null; // SQL 처리 객체
+        String sql = "DELETE member WHERE member_id=?"; // SQL 구문
 
-        try 
-        {
-            stmt = con.prepareStatement(sql);                       // SQL 인자(선)처리
+        try {
+            stmt = con.prepareStatement(sql); // SQL 인자(선)처리
             // stmt = con.createStatement();                        // SQL 인자(후)처리
-            stmt.setString(1, memberId);                            // ID
+            stmt.setString(1, memberId); // ID
 
-            if(stmt.executeUpdate() == 1)                           // 1:DML 성공한 행(tuple, record)의 수
+            if (stmt.executeUpdate() == 1) // 1:DML 성공한 행(tuple, record)의 수
             {
                 System.out.println("회원정보 삭제에 성공하였습니다.");
                 result = true;
-            }
-            else
-            {
+            } else {
                 System.out.println("회원정보 삭제에 실패하였습니다.");
                 result = false;
             }
-        } 
-        catch (SQLException e) 
-        {
+        } catch (SQLException e) {
             //TODO: handle exception
             System.out.println(e.getMessage());
             e.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             DbUtil.close(con, stmt, null);
         }
 
         return result;
+    }
+
+    @Override
+    public boolean isMember(String memberId) 
+    {
+        // 리턴 (반환값) 처리
+        boolean isMember = false;
+        //MemberVo member = new MemberVo();
+
+        // 실행 메서드명
+        String methodName = new Exception().getStackTrace()[0].getMethodName();
+
+        // DB 연결
+        Connection con = DbUtil.connect();
+
+        // SQL 처리 객체
+        PreparedStatement pstmt = null;
+
+        // SQL 결과셋 객체
+        ResultSet rs = null;
+
+        // SQL 구문
+        String sql = "SELECT count(*) FROM member WHERE member_id=?";
+
+        try 
+        {
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, memberId);
+            // SQL 실행 
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) 
+            {
+                isMember = rs.getInt(1) == 1 ? true : false;
+            }
+            else
+            {
+                isMember = false;
+            }
+        } 
+        catch (SQLException e) 
+        {
+            System.err.println(methodName + " : " + e.getMessage());
+            e.printStackTrace();
+        } 
+        finally 
+        {
+			// 자원 반납
+			DbUtil.close(con, pstmt, rs);
+		}
+		
+		// 리턴(반환)
+        return isMember;
     }
 }
