@@ -489,4 +489,50 @@ public class MemberDaoImpl implements MemberDao
 		// 리턴(반환)
         return pagingMembers;
     }
+
+    @Override
+    public boolean isEnableEmail(String memberEmail) 
+    {
+        // 리턴(반환값) 처리
+        boolean isEnabled = false;
+        // 실행 메서드명
+        String methodName = new Exception().getStackTrace()[0].getMethodName();
+        // DB 연결
+        Connection con = DbUtil.connect();
+        // SQL 처리 객체
+        PreparedStatement pstmt = null;
+        // SQL 결과셋 객체 (DQL:select)
+        ResultSet rs = null;
+        // SQL 구문
+        String sql = "SELECT DECODE(count(*), 0, 'true', 1, 'false') FROM member " + 
+                "WHERE member_email = 'abcd1@abcd.com';";
+        
+        try 
+        {
+            // SQL 처리
+            pstmt = con.prepareStatement(sql);
+            // SQL 결과셋 객체 생성
+            rs = pstmt.executeQuery();
+            // SQL 실행, 예외처리
+            if(rs.next())
+            {
+                if(rs.getBoolean(1))
+                    isEnabled = true;
+                else
+                    isEnabled = false;
+            }
+        } 
+        catch (Exception e) 
+        {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+		finally
+        {
+            // 자원 반납
+            DbUtil.close(con, pstmt, rs);
+        }
+
+        return isEnabled;
+    }
 }

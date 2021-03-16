@@ -92,4 +92,13 @@ public interface MemberDao
      * @return 회원정보 리스트
      */
     public List<MemberVo> getMembersByPaging(int page, int limit);
+
+    /**
+     * 이메일 중복 점검<br><br>
+     *  : 사용 가능한 이메일 여부 점검<br><br>
+     * 
+     * @param memberEmail 이메일
+     * @return 가용 이메일 여부
+     */
+    public boolean isEnableEmail(String memberEmail);
 }
