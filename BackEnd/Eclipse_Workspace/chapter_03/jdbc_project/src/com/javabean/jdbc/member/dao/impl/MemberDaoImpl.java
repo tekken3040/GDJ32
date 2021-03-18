@@ -703,7 +703,8 @@ public class MemberDaoImpl implements MemberDao
             // SQL 실행 
             rs = pstmt.executeQuery();
 
-            while (rs.next()) {
+            while (rs.next()) 
+            {
                 // 개별 회원정보 생성
                 // 주의) VO 객체 이 구문에서 선언시 특정 개별 회원들만 여러행 출력됨
                 member = new MemberVo();

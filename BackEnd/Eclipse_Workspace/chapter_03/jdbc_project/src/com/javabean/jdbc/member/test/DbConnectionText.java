@@ -1,6 +1,5 @@
 package com.javabean.jdbc.member.test;
 
-import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

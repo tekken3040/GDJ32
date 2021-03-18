@@ -2,9 +2,6 @@ package com.javabean.jdbc.member.test;
 
 import java.sql.Date;
 
-import javax.lang.model.util.ElementScanner6;
-import javax.naming.spi.DirStateFactory.Result;
-
 import com.javabean.jdbc.member.dao.MemberDao;
 import com.javabean.jdbc.member.dao.impl.MemberDaoImpl;
 import com.javabean.jdbc.member.domain.MemberVo;
