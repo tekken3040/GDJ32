@@ -101,4 +101,41 @@ public interface MemberDao
      * @return 가용 이메일 여부
      */
     public boolean isEnableEmail(String memberEmail);
+
+    /**
+	 * 연락처(전화번호) 중복 점검<br><br>
+	 * : 사용 가능한 연락처(전화번호) 여부 점검<br><br>
+	 * : ex) 회원가입시 연락처(전화번호) 중복 점검<br> 
+	 * : 연락처(전화번호) 용도 &rarr; 아이디/비밀번호 분실시 검색 활용<br><br>  
+	 * 
+	 * @param memberPhone 회원 연락처(전화번호)
+	 * @return 가용 연락처(전화번호) 여부
+	 */
+	public boolean isEnablePhone(String memberPhone);
+	
+	/**
+	 * 연락처(전화번호) 중복 점검<br><br>
+	 * : 사용 가능한 연락처(전화번호) 여부 점검<br><br>
+	 * : ex) 회원가입시 연락처(전화번호) 중복 점검<br> 
+	 * : 연락처(전화번호) 용도 &rarr; 아이디/비밀번호 분실시 검색 활용<br><br>  
+	 * 
+	 * @param memberId 회원 아이디
+	 * @param memberPhone 회원 연락처(전화번호)
+	 * @return 가용 연락처(전화번호) 여부
+	 */
+    public boolean isEnablePhone(String memberId, String memberPhone);
+    
+    /**
+	 * 검색어를 활용한 페지징 회원정보 검색<br><br> 
+	 * : 검색어, 동등검색여부, 오름/내림차순 정렬 여부, 페이징 등 적용<br><br>
+	 * 
+	 * @param searchKey 검색어 종류 ex) 이름
+	 * @param searchValue 검색어 값  ex) 길동 
+	 * @param isEquivalentSearch 동등 검색 여부 ex) true : 동등, false : 유사
+	 * @param sortDirection 정렬 방향 ex) ASC : 오름차순, DESC : 내림차순 
+	 * @param page 조회할 페이지 번호 ex) 1
+	 * @param limit 페이지 당 출력 행 수 ex) 10
+	 * @return 회원정보 리스트(목록)
+	 */
+	public List<MemberVo> getMembersBySearching(String searchKey, String searchValue, boolean isEquivalentSearch, String sortDirection, int page, int limit);
 }

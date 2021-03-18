@@ -10,6 +10,7 @@ import java.util.List;
 import com.javabean.jdbc.member.dao.MemberDao;
 import com.javabean.jdbc.member.domain.MemberVo;
 import com.javabean.jdbc.member.util.DbUtil;
+import com.javabean.jdbc.member.util.ExceptionMetadata;
 
 /**
  * MemberDao의 구현 클래스(concrete class)<br></br>
@@ -50,6 +51,7 @@ public class MemberDaoImpl implements MemberDao
         // TODO Auto-generated method stub
         boolean result = false;
 
+        ExceptionMetadata emd = new ExceptionMetadata(new Exception().getStackTrace()[0]);
         Connection con = DbUtil.connect();                          // DB 연결
         PreparedStatement stmt = null;                              // SQL 처리 객체
         String sql = "INSERT INTO member VALUES" + 
@@ -87,6 +89,7 @@ public class MemberDaoImpl implements MemberDao
             //TODO: handle exception
             System.out.println(e.getMessage());
             e.printStackTrace();
+            emd.printErr(e, con, true);
         }
         finally
         {
@@ -104,6 +107,8 @@ public class MemberDaoImpl implements MemberDao
 
         // 개별회원 정보 객체
         MemberVo member = null;
+
+        ExceptionMetadata emd = new ExceptionMetadata(new Exception().getStackTrace()[0]);
 
         // 실행 메서드 명
         String methodName = new Exception().getStackTrace()[0].getMethodName();
@@ -150,6 +155,7 @@ public class MemberDaoImpl implements MemberDao
         } 
         catch (SQLException e) 
         {
+            emd.printErr(e, con, false);
         }
         finally
         {
@@ -534,5 +540,202 @@ public class MemberDaoImpl implements MemberDao
         }
 
         return isEnabled;
+    }
+
+    @Override
+    public boolean isEnablePhone(String memberPhone) 
+    {
+        // 리턴(반환값) 처리
+		boolean result = false;
+		 
+		// 트랜잭션/예외처리 객체 생성
+		ExceptionMetadata emd
+		   = new ExceptionMetadata(new Exception().getStackTrace()[0]);
+		
+		// DB 연결
+		Connection con = DbUtil.connect();
+		
+		// SQL 처리 객체
+		PreparedStatement pstmt = null;	
+		
+		// SQL 결과셋 객체 (DQL:select)
+		ResultSet rs = null;
+				
+		// SQL 구문
+		// 1)
+//				String sql = "SELECT DECODE(count(*), 0, 'true', 1, 'false') as phone_flag "
+//						   + "FROM member " 
+//						   + "WHERE member_phone = ?";
+		
+		// 2)
+		String sql = "SELECT count(*) FROM member "
+				   + "WHERE member_phone = ?";
+			
+		// SQL, 인자 (선)처리, 예외처리
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, memberPhone);
+			// SQL 실행 
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				// 1)
+				// result = Boolean.valueOf(rs.getString(1));
+				// result = new Boolean(rs.getString(1));
+				// result = new Boolean(rs.getString("phone_flag"));
+				
+				// 2)
+				result = rs.getInt(1) == 0 ? true : false;
+			}
+			
+		} catch (SQLException e) {
+			emd.printErr(e, con, false);
+		} finally {
+			// 자원 반납
+			DbUtil.close(con, pstmt, rs);
+		}		
+				
+		// 리턴값
+		return result;
+    }
+
+    @Override
+    public boolean isEnablePhone(String memberId, String memberPhone) 
+    {
+        // 리턴(반환값) 처리
+		boolean result = false;
+		 
+		// 트랜잭션/예외처리 객체 생성
+		ExceptionMetadata emd
+		   = new ExceptionMetadata(new Exception().getStackTrace()[0]);
+		
+		// DB 연결
+		Connection con = DbUtil.connect();
+		
+		// SQL 처리 객체
+		PreparedStatement pstmt = null;	
+		
+		// SQL 결과셋 객체 (DQL:select)
+		ResultSet rs = null;
+				
+		// SQL 구문
+		// 1)
+//		String sql = "SELECT DECODE(count(*), 0, 'true', 1, 'false') as phone_flag "
+//				   + "FROM member " 
+//				   + "WHERE member_id != ? "
+//				   + "  AND member_phone = ?";
+		
+		// 2)
+		String sql = "SELECT count(*) FROM member "
+				   + "WHERE member_id != ? "
+				   + "  AND member_phone = ?";
+			
+		// SQL, 인자 (선)처리, 예외처리
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, memberPhone);
+			// SQL 실행 
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				// 1)
+				// result = Boolean.valueOf(rs.getString(1));
+				// result = new Boolean(rs.getString(1));
+				// result = new Boolean(rs.getString("phone_flag"));
+				
+				// 2)
+				result = rs.getInt(1) == 0 ? true : false;
+			}
+			
+		} catch (SQLException e) {
+			emd.printErr(e, con, false);
+		} finally {
+			// 자원 반납
+			DbUtil.close(con, pstmt, rs);
+		}		
+				
+		// 리턴값
+		return result;
+    }
+
+    @Override
+    public List<MemberVo> getMembersBySearching(String searchKey, String searchValue, boolean isEquivalentSearch, String sortDirection, int page, int limit)
+    {
+        // 리턴(반환값) 처리
+		List<MemberVo> result = null;
+        MemberVo member = null;
+
+		// 트랜잭션/예외처리 객체 생성
+		ExceptionMetadata emd = new ExceptionMetadata(new Exception().getStackTrace()[0]);
+		
+		// DB 연결
+		Connection con = DbUtil.connect();
+		
+		// SQL 처리 객체
+		PreparedStatement pstmt = null;	
+		
+		// SQL 결과셋 객체 (DQL:select)
+		ResultSet rs = null;
+				
+		// SQL 구문
+        //String sql = "SELECT * FROM (SELECT ROWNUM, m.*, FLOOR((ROWNUM - 1) / ? + 1)" + 
+        //" page FROM ( SELECT * FROM member WHERE ? ? '?' ORDER BY member_id ? ) m ) WHERE page = ?";
+        StringBuilder sb = new StringBuilder();
+        sb.append("SELECT * FROM (SELECT ROWNUM, m.*, FLOOR((ROWNUM - 1) / ? + 1) page")
+        .append(" FROM (SELECT * FROM member WHERE ").append(searchKey).append(" ");
+        if(isEquivalentSearch)
+            sb.append("like");
+        else
+            sb.append("=");
+        sb.append(" '").append(searchValue).append("'ORDER BY member_id ").append(sortDirection);
+        sb.append(") m) WHERE page = ?");
+
+        String sql = sb.toString();
+		// SQL, 인자 (선)처리, 예외처리
+        try 
+        {
+            result = new ArrayList<>();
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, limit); // 페이지당 출력 행 수
+            pstmt.setInt(2, page); // 조회할 페이지 번호
+            
+            // SQL 실행 
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                // 개별 회원정보 생성
+                // 주의) VO 객체 이 구문에서 선언시 특정 개별 회원들만 여러행 출력됨
+                member = new MemberVo();
+                member.setMemberId(rs.getString("member_id"));
+                member.setMemberPassword(rs.getString("member_password"));
+                member.setMemberNickname(rs.getString("member_nickname"));
+                member.setMemberName(rs.getString("member_name"));
+                member.setMemberGender(rs.getString("member_gender"));
+                member.setMemberEmail(rs.getString("member_email"));
+                member.setMemberPhone(rs.getString("member_phone"));
+                member.setMemberBirth(rs.getDate("member_birth"));
+                member.setMemberZip(rs.getString("member_zip"));
+                member.setMemberAddressBasic(rs.getString("member_address_basic"));
+                member.setMemberAddressDetail(rs.getString("member_address_detail"));
+                member.setMemberJoinDate(rs.getDate("member_joinDate"));
+
+                // VO -> List(add) : 개별 회원정보 추가
+                result.add(member);
+            }
+
+        } 
+        catch (SQLException e) 
+        {
+            emd.printErr(e, con, false);
+        } 
+        finally 
+        {
+			// 자원 반납
+			DbUtil.close(con, pstmt, rs);
+		}		
+				
+		// 리턴값
+		return result;
     }
 }
