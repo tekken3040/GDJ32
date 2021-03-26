@@ -2,6 +2,8 @@
     <wb-module deploy-name="jstl_el_ex">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
         <dependent-module archiveName="xalan.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/xalan/xalan">
             <dependency-type>uses</dependency-type>
         </dependent-module>

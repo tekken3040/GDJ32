@@ -1,0 +1,7 @@
+ {
+    "java.home": "C:\\Progra~1\\Java\\jdk-15.0.2",
+    "java.project.referencedLibraries":[
+    "library/**/*.jar",
+    //"/home/username/lib/foo.jar",
+  ], 
+}
