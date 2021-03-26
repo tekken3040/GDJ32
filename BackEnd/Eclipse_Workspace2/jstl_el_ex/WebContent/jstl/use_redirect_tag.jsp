@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<script>
+	var param1 = "top_hty";
+	location.href="https://search.naver.com/search.naver?sm="+param1+"&fbm=0";
+</script>
+
 <c:redirect url="https://search.naver.com/search.naver">
 	<c:param name="sm" value="top_hty" />
 	<c:param name="fbm" value="0" />

@@ -1,0 +1,169 @@
+ {
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version":"0.2.0", 
+    "configurations":[ {
+            "type":"java", 
+            "name":"Launch Current File", 
+            "request":"launch", 
+            "mainClass":"${file}",
+            "jdkpath" : "C:\\Progra~1\\Java\\jdk1.8.0_271\\bin"
+        },  {
+            "type":"java", 
+            "name":"Launch test", 
+            "request":"launch", 
+            "mainClass":"vo.test", 
+            "projectName":"jstl_el_ex"
+        },  {
+            "type":"java", 
+            "name":"Launch Version", 
+            "request":"launch", 
+            "mainClass":"org.apache.taglibs.standard.Version", 
+            "projectName":"taglibs-standard-impl-1.2.5"
+        },  {
+            "type":"java", 
+            "name":"Launch ELParser", 
+            "request":"launch", 
+            "mainClass":"org.apache.taglibs.standard.lang.jstl.parser.ELParser", 
+            "projectName":"taglibs-standard-jstlel-1.2.5"
+        },  {
+            "type":"java", 
+            "name":"Launch Class2HTML", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.util.Class2HTML", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch JavaWrapper", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.util.JavaWrapper", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch GraphicalVerifier", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.GraphicalVerifier", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch NativeVerifier", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.NativeVerifier", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch TransitiveHull", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.TransitiveHull", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch Verifier", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.Verifier", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch VerifyDialog", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.VerifyDialog", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch AssertionViolatedException", 
+            "request":"launch", 
+            "mainClass":"org.apache.bcel.verifier.exc.AssertionViolatedException", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch REDemo", 
+            "request":"launch", 
+            "mainClass":"org.apache.regexp.REDemo", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch RETest", 
+            "request":"launch", 
+            "mainClass":"org.apache.regexp.RETest", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch recompile", 
+            "request":"launch", 
+            "mainClass":"org.apache.regexp.recompile", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch Version(1)", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.Version", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch ObjectArray", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.lib.sql.ObjectArray", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch XSLProcessorVersion", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.processor.XSLProcessorVersion", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch EnvironmentCheck", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.xslt.EnvironmentCheck", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch Process", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.xslt.Process", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch ProcessorVersion", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.xsltc.ProcessorVersion", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch Compile", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.xsltc.cmdline.Compile", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch Transform", 
+            "request":"launch", 
+            "mainClass":"org.apache.xalan.xsltc.cmdline.Transform", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch DTMSafeStringPool", 
+            "request":"launch", 
+            "mainClass":"org.apache.xml.dtm.ref.DTMSafeStringPool", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch DTMStringPool", 
+            "request":"launch", 
+            "mainClass":"org.apache.xml.dtm.ref.DTMStringPool", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch IncrementalSAXSource_Xerces", 
+            "request":"launch", 
+            "mainClass":"org.apache.xml.dtm.ref.IncrementalSAXSource_Xerces", 
+            "projectName":"xalan"
+        },  {
+            "type":"java", 
+            "name":"Launch App", 
+            "request":"launch", 
+            "mainClass":"App"
+        }
+    ]
+}
