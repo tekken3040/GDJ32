@@ -55,7 +55,7 @@ public class test
 	}*/
 	
 	// 4번 문제   답 : 110894536
-	/*
+	
 	public static void main(String[] args) 
 	{
 		int sum = 0;
@@ -69,9 +69,10 @@ public class test
 		}
 		
 		System.out.println("Sum : " + sum);
-	}*/
+	}
 	
 	// 5번 문제   답 : 2450
+	/*
 	public static void main(String[] args) 
 	{
 		int num = 1;
@@ -110,5 +111,5 @@ public class test
         }
 		
 		System.out.println("Sum : " + sum2);
-	}
+	}*/
 }
